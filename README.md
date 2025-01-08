@@ -1,6 +1,6 @@
 # Active Directory Lab Setup
 
-This repository documents the setup of an Active Directory lab environment inspired by [John Hammond's video tutorial](https://www.youtube.com/watch?v=pKtDQtsubio). The lab provides a foundational environment for practicing Active Directory enumeration, exploitation, and security assessments.
+This repository documents the setup of an Active Directory lab environment inspired by [John Hammond's video tutorial](https://www.youtube.com/playlist?list=PL1H1sBF1VAKVoU6Q2u7BBGPsnkn-rajlp). The lab provides a foundational environment for practicing Active Directory enumeration, exploitation, and security assessments.
 
 ## Purpose
 
