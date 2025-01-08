@@ -15,6 +15,7 @@ The goal of this setup is to:
 - **Operating Systems**:
   - Windows Server 2022 (configured as a Domain Controller)
   - Windows 11 (joined to the domain)
+  - HTB Parrot OS (Enumerating the domain)
 - **Networking Configuration**: Host-only networking setup for communication between VMs.
 
 ## Lab Setup Overview
@@ -23,6 +24,7 @@ The goal of this setup is to:
 2. **Created Virtual Machines**:
    - Windows Server 2022 for the Domain Controller.
    - Windows 11 for the workstation joined to the domain.
+   - HTB Parrot OS (for enumerating the domain and testing attack vectors)
 3. **Configured Networking**:
    - Set up host-only networking for isolated communication.
 4. **Promoted Windows Server to a Domain Controller**:
