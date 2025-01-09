@@ -7,7 +7,7 @@ link for more documentation on how to add a server to a server manager using tru
 
 
 Starting the New Powershell session after adding the domain controller to the management server and logging in using the DC login credentials
-![Adding Domain Controller to management console](<Active-Directory-lab-Setup/media/Screenshot 2025-01-09 125755.png>)
+![Adding Domain Controller to management console](</media/Screenshot 2025-01-09 125755.png>)
 
 
 Setting up Active Directory on the server 
