@@ -15,14 +15,14 @@ Setting up Active Directory on the server
 
 following the link we know that we have a wierd name for our server so we will change that name of the computer by switching back to our Domain controller terminal and uisng sconfig and selecting the option of Computer Name and changing it as **DC-1** 
 
-![alt text](DC1.png)
+![Changing the name of the Domain Controller](./media/DC1.png)
 
 Now we change the network settings in our domain controller accordingly using sconfig and choosing option 8 as we need to keep a static IP address to our network before setting up the AD. 
-![alt text](image-1.png)
+![Changing Network Settings](./media/image-1.png)
 
 changing the address to static and keeping the default gateway as is
 
-![alt text](image.png)
+![Making the Static IP Address](./media/image.png)
 
 We will configure the DNS Server in the same Network settings using the sconfig and let the IP be the same as we want the Domain Controller to be at the top
 
@@ -30,14 +30,14 @@ Installing Active Directory Windows Feature in the Domain Controller
 ```shell
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 ```
-![alt text](image-2.png)
+![Installing active directory feature](./media/image-2.png)
 
 Importing and Installing Active Directory Forest
 ```shell
 import-Module ADDSDeployment
 Install-ADDSForest
 ```
-![alt text](image-3.png)
+![Importing and Installing](./media/image-3.png)
 
 Naming the Domain whatever we wish to (I named it Hackerspace.com) and set the password, I kept the same password as the one for the base server in our base server setup(You can change it if you want to).
 
@@ -57,10 +57,10 @@ On the Workstation we need to change the DNS settings to such that the workstati
 - We will follow the same steps as above and change the DNSServer Address and keep it as the IP of the DC
 
 Once created lets dive into joining this workstation to the domain. For that we will have to go the **Access School or work** form the start menu
-![alt text](image-4.png)
+![Joining the workstation to domain](./media/image-4.png)
 
 Select the **Join this device to local active directory domain**
-![alt text](image-5.png)
+![Joinig active directory](./media/image-5.png)
 
 Just for the fun of it and to try this the new way we will add the computer to the domain using the powershell commandline
 
@@ -70,6 +70,6 @@ Add-Computer -DomainName Hackerspace.com -Credential Hackerspace\Administartor -
 ```
 
 This will add our computer to the domain and will restart the system (As windows always wants its settings to take place after a restart :| )
-![alt text](image-6.png)
+![Joinig the computer using powershell command](./media/image-6.png)
 
 
