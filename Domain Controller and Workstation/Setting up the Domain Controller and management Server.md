@@ -7,7 +7,7 @@ link for more documentation on how to add a server to a server manager using tru
 
 
 Starting the New Powershell session after adding the domain controller to the management server and logging in using the DC login credentials
-![Adding Domain Controller to management console](<Active-Directory-lab-Setup/media/Screenshot 2025-01-09 125755.png>)
+![Adding Domain Controller to management console](<./media/Screenshot 2025-01-09 125755.png>)
 
 
 Setting up Active Directory on the server 
@@ -15,10 +15,10 @@ Setting up Active Directory on the server
 
 following the link we know that we have a wierd name for our server so we will change that name of the computer by switching back to our Domain controller terminal and uisng sconfig and selecting the option of Computer Name and changing it as **DC-1** 
 
-![alt text](DC1.png)
+![Changing the name of our Domain Controller](./media/DC1.png)
 
 Now we change the network settings in our domain controller accordingly using sconfig and choosing option 8 as we need to keep a static IP address to our network before setting up the AD. 
-![alt text](image-1.png)
+![Changing the network settings](./media/image-1.png)
 
 changing the address to static and keeping the default gateway as is
 
