@@ -1,0 +1,20 @@
+6. Today we did
+Cloning the Server and workstation and setting one of the server as domain controller and the workstation as a management console and enabled PS remoting
+
+Added the created domain controller as a trusted host from the management console and configured the WinRM of the domain controller and entered the PS session remotely from the management console
+
+link for more documentation on how to add a server to a server manager using trusted hosts https://learn.microsoft.com/en-us/windows-server/administration/server-manager/add-servers-to-server-manager
+
+
+Starting the New Powershell session after adding the domain controller to the management server and logging in using the DC login credentials
+![image](https://github.com/user-attachments/assets/f5ec3665-c9a1-4aaa-a493-2a3649031933)
+
+
+Setting up Active Directory on the server 
+ Link that I followed: https://xpertstec.com/microsoft/microsoft-windows-server/how-to-install-active-directory-windows-server-core-2022/
+
+following the link we know that we have a wierd name for our server so we will change that name of the computer by switching back to our Domain controller terminal and uisng sconfig and selecting the option of Computer Name
+and changing it as Domain-Controller1 
+
+![image](https://github.com/user-attachments/assets/ab4a1d47-7676-46c9-9b77-215930b953aa)
+
