@@ -44,3 +44,13 @@ ad-lab-setup/
 ├── scripts/                 # Automation scripts (if any)
 └── LICENSE                  # Repository license
 
+
+
+Today we did
+Cloning the Server and workstation and setting one of the server as domain controller and the workstation as a management console and enabled PS remoting
+
+Added the created domain controller as a trusted host from the management console and configured the WinRM of the domain controller and entered the PS session remotely from the management console
+
+link for more documentation on how to add a server to a server manager using trusted hosts https://learn.microsoft.com/en-us/windows-server/administration/server-manager/add-servers-to-server-manager
+
+![image](https://github.com/user-attachments/assets/f5ec3665-c9a1-4aaa-a493-2a3649031933)
