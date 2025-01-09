@@ -32,7 +32,6 @@ The goal of this setup is to:
 5. **Joined Windows 11 Workstation to the Domain**:
    - Configured DNS to point to the Domain Controller.
    - Added the workstation to the domain.
-![image](https://github.com/user-attachments/assets/ab4a1d47-7676-46c9-9b77-215930b953aa)
 ## Repository Structure
 
 ```plaintext
