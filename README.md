@@ -32,15 +32,6 @@ The goal of this setup is to:
 5. **Joined Windows 11 Workstation to the Domain**:
    - Configured DNS to point to the Domain Controller.
    - Added the workstation to the domain.
-  
-6. Today we did
-Cloning the Server and workstation and setting one of the server as domain controller and the workstation as a management console and enabled PS remoting
-
-Added the created domain controller as a trusted host from the management console and configured the WinRM of the domain controller and entered the PS session remotely from the management console
-
-link for more documentation on how to add a server to a server manager using trusted hosts https://learn.microsoft.com/en-us/windows-server/administration/server-manager/add-servers-to-server-manager
-
-![image](https://github.com/user-attachments/assets/f5ec3665-c9a1-4aaa-a493-2a3649031933)
 
 ## Repository Structure
 
