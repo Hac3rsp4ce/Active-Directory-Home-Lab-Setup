@@ -35,7 +35,7 @@ The goal of this setup is to:
 ## Repository Structure
 
 ```plaintext
-ad-lab-setup/
+ad-home-lab-setup/
 ├── README.md                # Overview of the repository
 ├── BASE SERVER and WORKSTATION/
     ├──setup-instructions.md # Detailed setup steps
