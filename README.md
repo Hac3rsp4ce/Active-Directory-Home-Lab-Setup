@@ -35,12 +35,13 @@ The goal of this setup is to:
 ## Repository Structure
 
 ```plaintext
-ad-lab-setup/
+ad-home-lab-setup/
 ├── README.md                # Overview of the repository
-├── setup-instructions.md    # Detailed setup steps
-├── media/                   # Screenshots of the lab setup
-├── configurations/          # Configuration files and settings
-├── scripts/                 # Automation scripts (if any)
+├── BASE SERVER and WORKSTATION/
+    ├──setup-instructions.md # Detailed setup steps
+├── Domain Controller and Workstation/
+    ├──media/                   # Screenshots of the lab setup
+    ├──Setting up the Domain Controller and management Server.md
 └── LICENSE                  # Repository license
 
 
