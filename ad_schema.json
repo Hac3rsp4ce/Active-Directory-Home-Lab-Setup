@@ -1,0 +1,53 @@
+{
+    "groups": [
+
+        {
+            "name": "Software Developers",
+            "description": "This is a group for software developers.",
+        }
+
+
+
+
+
+
+
+
+    ],
+   
+   
+   
+   
+    "users": [
+
+        {
+            "first_name": "Jason",
+            "last_name": "Bourne",
+            "password": "letmebeme",
+            "username":"first_name",
+            "email": "jbourn@hackerspace.com",
+            
+
+            "groups": [ 
+                "Software Developers"
+            ]
+        }
+
+
+
+
+
+
+
+
+    ]
+
+
+
+
+
+
+
+
+
+}
