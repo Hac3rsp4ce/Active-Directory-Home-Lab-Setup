@@ -8,3 +8,22 @@ We will use the above to create the vulnerable environment but do some of our ow
 
 
 I created the "./ad_schema.json" file and created a group of software developers and a single user name Jason Bourne and gave his username, password and email id for our domain. 
+
+Lets try to get this file on the other side of the domain controller and through the managemnet console that we created earlier and use it in the domain controller to create the user and the group.
+
+We can copy the file by the using the command 
+
+```shell
+Copy-Item .\name_of_the_file -ToSession $dc *Path of the folder you want to paste it*
+ 
+ 
+ /// in my case ///
+
+Copy-Item .\ad_schema.json -ToSession $dc C:\Windows\Tasks
+
+```
+*Note: where in $dc is what i wanted my PS remote session of the domain controller to be.*
+
+![Copying the json file](./media/useradding.png)
+
+
