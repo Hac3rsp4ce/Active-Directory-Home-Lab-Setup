@@ -61,7 +61,8 @@ Intrestingly I added another named John Wick (":P") in our schema file and set t
 
 ![johnwick](./media/johnwick.png)
 
-Now creating a Group in the Domain Controller we shall follow the command given in the vulnad repository and use it. we created the necessary functions and commands that we would require to let the domain controller create the groups and add the users to their respective groups. 
+Now creating a Group in the Domain Controller we shall follow the command given in the vulnad repository and use it. we created the necessary functions and commands that we would require to let the domain controller create the groups and add the users to their respective groups.
+
 ![groupad](./media/groupad.png)
 
 ![groupad2](./media/groupad2.png)
