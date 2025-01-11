@@ -23,10 +23,7 @@ function CreateADUser(){
     $principalName = $username
 
     # Creating the user in Active Directory
-     New-ADUser -Name "$name" -GivenName $firstname -Surname $lastname
-    -SamAccountName $samAccountName -UserPrincipalName $principalname@$Global:Domain 
-    -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) 
-    -PassThru | Enable-ADAccount 
+     New-ADUser -Name "$name" -GivenName $firstname -Surname $lastname -SamAccountName $SamAccountName -UserPrincipalName $Principalname@$Global:Domain -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) -PassThru | Enable-ADAccount 
     #Add the user to appropriate groups
     foreach ($group_name in $userObject.groups){
 
