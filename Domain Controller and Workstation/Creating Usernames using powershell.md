@@ -85,8 +85,9 @@ We can see that the groups are created and both our users are added to their res
 
 When we give the command Get-ADGroup and put the filter to * we can see the groups that we created
 ![getadgroup](./media/getadgroup.png)
- and when we give command Get-ADUser and set the filter to * we can see our users have also been created 
- ![getaduser](./media/getaduser.png)
+
+and when we give command Get-ADUser and set the filter to * we can see our users have also been created 
+![getaduser](./media/getaduser.png)
  
  We Then try to login in the workstation with the newly created users and we got our success.!!!
  ![alt text](./media/complete.png)
