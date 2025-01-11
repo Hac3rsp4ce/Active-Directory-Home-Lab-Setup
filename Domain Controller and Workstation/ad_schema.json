@@ -32,7 +32,7 @@
         },
         {
             "name": "John Wick",
-            "password": "w1ckjohn123",
+            "password": "wickjohn123",
             "groups": [ 
                 "Security Analysts"
             ]
