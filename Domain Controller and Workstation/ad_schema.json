@@ -1,35 +1,40 @@
 {
+
+
+    "domain": "hackerspace.com",
+
     "groups": [
 
         {
             "name": "Software Developers",
-            "description": "This is a group for software developers.",
+            "description": "This is a group for software developers."
+        }
+
+        {
+            "name": "Security Analysts",
+            "description": "This is a group for security analysts."
         }
 
 
 
-
-
-
-
-
     ],
-   
-   
+ 
    
    
     "users": [
 
         {
-            "first_name": "Jason",
-            "last_name": "Bourne",
-            "password": "letmebeme",
-            "username":"first_name",
-            "email": "jbourn@hackerspace.com",
-            
-
+            "name": "Jason Bourne",
+            "password": "Cakework123",
             "groups": [ 
                 "Software Developers"
+            ]
+        },
+        {
+            "name": "John Wick",
+            "password": "w1ckjohn123",
+            "groups": [ 
+                "Security Analysts"
             ]
         }
 
