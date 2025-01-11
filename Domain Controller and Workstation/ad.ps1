@@ -7,9 +7,8 @@ function CreateADGroup(){
     New-ADGroup -name $group -GroupScope Global
 }
 
-
 function CreateADUser(){
-
+    
     param([parameter(Mandatory=$true)] $userObject)
 
     # Pulling out the name from the JSON File
