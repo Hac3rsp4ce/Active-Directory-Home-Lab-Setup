@@ -1,31 +1,30 @@
 param([parameter(Mandatory=$true)] $JSONFile)
 
 function CreateADGroup(){
-    param([parameter(Mandatory=$true)] $JSONFile)
+    param([parameter(Mandatory=$true)] $groupObject)
 
     $name = $groupObject.name
-    New-ADGroup -name $group -GroupScope Global
+    New-ADGroup -name $name -GroupScope Global
 }
 
 function CreateADUser(){
-    
+
     param([parameter(Mandatory=$true)] $userObject)
 
     # Pulling out the name from the JSON File
     $name = $userObject.name
     $password = $userObject.password
-    $email = $userObject.email
 
     # Creating the username using the first letter of the last name and the first name
     
     $firstname,$lastname = $name.Split(" ")
     $username =  ($lastname[0] + $firstname).ToLower()
     $samAccountName = $username
-    $principleName = $username
+    $principalName = $username
 
     # Creating the user in Active Directory
      New-ADUser -Name "$name" -GivenName $firstname -Surname $lastname
-    -SamAccountName $SamAccountName -UserPrincipalName $principalname@$Global:Domain 
+    -SamAccountName $samAccountName -UserPrincipalName $principalname@$Global:Domain 
     -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) 
     -PassThru | Enable-ADAccount 
     #Add the user to appropriate groups
@@ -33,7 +32,7 @@ function CreateADUser(){
 
         try {
             Get-ADGroup -Identity "$group_name"
-            Add-ADGroupMember -Identity $group -Members $username
+            Add-ADGroupMember -Identity $group_name -Members $username
 
         }
         catch [Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException]  
