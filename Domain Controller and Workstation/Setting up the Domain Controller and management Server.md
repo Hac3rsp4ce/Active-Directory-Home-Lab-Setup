@@ -15,17 +15,10 @@ Setting up Active Directory on the server
 
 following the link we know that we have a wierd name for our server so we will change that name of the computer by switching back to our Domain controller terminal and uisng sconfig and selecting the option of Computer Name and changing it as **DC-1** 
 
-<<<<<<< HEAD
 ![Changing the name of our Domain Controller](./media/DC1.png)
 
 Now we change the network settings in our domain controller accordingly using sconfig and choosing option 8 as we need to keep a static IP address to our network before setting up the AD. 
 ![Changing the network settings](./media/image-1.png)
-=======
-![Changing the name of the Domain Controller](./media/DC1.png)
-
-Now we change the network settings in our domain controller accordingly using sconfig and choosing option 8 as we need to keep a static IP address to our network before setting up the AD. 
-![Changing Network Settings](./media/image-1.png)
->>>>>>> b606390badc6ff8d59b6fc431ff23d00470c9ecf
 
 changing the address to static and keeping the default gateway as is
 

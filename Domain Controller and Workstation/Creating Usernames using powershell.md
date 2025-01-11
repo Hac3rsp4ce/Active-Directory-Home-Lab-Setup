@@ -16,8 +16,10 @@ We can copy the file by the using the command
 ```shell
 Copy-Item .\name_of_the_file -ToSession $dc *Path of the folder you want to paste it*
  
- 
- /// in my case ///
+ ```
+ in my case
+
+ ```shell
 
 Copy-Item .\ad_schema.json -ToSession $dc C:\Windows\Tasks
 
@@ -27,11 +29,11 @@ Copy-Item .\ad_schema.json -ToSession $dc C:\Windows\Tasks
 ![Copying the json file](./media/useradding.png)
 
 Just to test around and follow the video series I tried the same code but changed the values and added an email to the ad_schema.json file
-![adding the names to the json](json.png) 
+![adding the names to the json](./media/json.png)
 
 Now creating our own powershell script and trying to see automate and create an AD user we use some commands from online and try it out 
 
-![powershell](image.png)
+![powershell](./media/powershell.png)
 
 Looking into the "VULAD" github repository we shall try to take the adding user powershell script, but before that I wanted to try the name to be split as "last initial.firstname" conceptual based so I give the command as 
 
@@ -39,17 +41,16 @@ Looking into the "VULAD" github repository we shall try to take the adding user 
  ($name[6] + $name.Split(" ")[0]).ToLower()
 
  ```
-
  where in it takes the first inital from the last name and keeps the first name as is and converts the whole thing to lower case 
- ![alt text](image-1.png)
+ ![lastinitial](./media/lastinitial.png)
 
  Now lets use this as to give the username to the AD user.
 
-I do not but I just tweeked a little bit here and there and tried to work around with the video and  added the first name and last name in the Create user function and and we used the same command above and made the name of the user be used as the first name and last name.
-![alt text](image-3.png)
+I do not but I just tweeked a little bit here and there and tried to work around with the video and added the first name and last name in the Create user function and and we used the same command above and made the name of the user be used as the first name and last name.
+![firstname](./media/firstname.png)
 
 using the VULNAD repository we shall insert the command to get the Activer directory user started.
-![alt text](image-4.png)
+![userAD](./media/userad.png)
 
 Now in the principal username to define the "$Global:Domain" we need to set the domain in our schema file wherein we can add the domain name. You can give it whatever you named your Domain controller DNS name as
 
@@ -58,16 +59,14 @@ Now in the principal username to define the "$Global:Domain" we need to set the 
 ```
 Intrestingly I added another named John Wick (":P") in our schema file and set the name password and we added him to the Security Analysts group
 
-![alt text](image-5.png)
-
+![johnwick](./media/johnwick.png)
 
 Now creating a Group in the Domain Controller we shall follow the command given in the vulnad repository and use it. we created the necessary functions and commands that we would require to let the domain controller create the groups and add the users to their respective groups. 
-![alt text](image-6.png)
+![groupad](./media/groupad.png)
 
-![alt text](image-7.png)
+![groupad2](./media/groupad2.png)
 
 I haven't still run this code in the domain controller  but just putting it here just for documentation.
-
 
 Lets take these files to our Domain controller and see how it goes on the other side.
 
@@ -77,4 +76,16 @@ To run the ps1 and giving our schema file as an input to it
 
 ```shell
     .\ad.ps1
-    
+    .\ad_schema.json
+```
+We can see that the groups are created and both our users are added to their respective groups.
+
+![groupscreated](./media/groupscreated.png)
+
+When we give the command Get-ADGroup and put the filter to * we can see the groups that we created
+![getadgroup](./media/getadgroup.png)
+ and when we give command Get-ADUser and set the filter to * we can see our users have also been created 
+ ![getaduser](./media/getaduser.png)
+ 
+ We Then try to login in the workstation with the newly created users and we got our success.!!!
+ ![alt text](./media/complete.png)
