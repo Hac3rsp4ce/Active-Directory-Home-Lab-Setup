@@ -12,11 +12,11 @@ $num_groups = 10
 
 for ($i=0; $i -lt $num_groups; $i++){
     
-        $new_group = (Get-Random -InputObject $group_names)
-        $groups += @{"name" = $new_group}
-        $group_names.Remove($new_group)
-    }
-echo $group_names 
+        $group_name = (Get-Random -InputObject $group_names)
+        $group = @{"name" = "$group_name"}
+        $groups += $group
+        $group_names.Remove($group_name)
+    } 
 
 $num_users = 50
 
@@ -28,10 +28,9 @@ for ($i=0; $i -lt $num_users; $i++){
         $new_user = @{  
 
             "name" = "$first_name $last_name"
-            "password" = $password
+            "password" = "$password"
             "groups" = @((Get-Random -InputObject $groups).name)
         }
-        echo $new_user
 
         $users += $new_user
 
@@ -41,7 +40,8 @@ for ($i=0; $i -lt $num_users; $i++){
     }
 
 
-ConvertTo-Json @{
+# Convert to JSON and write to file
+ConvertTo-Json -InputObject @{
     "domain" = "hackerspace.com"
     "groups" = $groups
     "users" = $users

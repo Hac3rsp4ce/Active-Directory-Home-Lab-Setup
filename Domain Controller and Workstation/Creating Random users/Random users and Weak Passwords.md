@@ -16,23 +16,24 @@ It provides a dynamic array that can grow and shrink as needed.
 
 ![alt text](./media/code.png)
 
-*Initialize Variables*
+# Initialize Variables
 Two empty lists, $groups and $users, are created to store the generated groups and users.
 
-*Create Groups*
+# Create Groups
 
 The script creates 10 random groups.
 For each group, a name is randomly picked from groupnames.txt, added to the $groups list, and removed from the available options.
-Create Users
+
+# Create Users
 
 50 random users are created.
 For each user:
-A first name, last name, and password are randomly picked from the respective lists.
-A group is randomly assigned to the user.
-The user’s details (name, password, group) are stored in the $users list.
+    -A first name, last name, and password are randomly picked from the respective lists.
+    -A group is randomly assigned to the user.
+    -The user’s details (name, password, group) are stored in the $users list.
 Once selected, the names and passwords are removed from the available options to avoid duplication.
 
-*Output Results*
+# Output Results
 
 After generating the groups and users, the script outputs a structured summary:
 Domain: The domain for the environment (hackerspace.com).
@@ -55,3 +56,17 @@ function WeakenPasswordPolicy(){
 ```
 
 Reverting back to our original Domain Controller snapshot where we did not create any AD users as such so we can have fresh start (Thats the reason why always have your majorly changed VM snapshotted ) and copying all the files that we require from our management console to the Domain Controllers end. 
+
+We run our ad.ps1 file with the newly created json file that we get when we run our powershell code of creating random users and groups.
+And accordingly we see that the domain controller has created random groups and users. 
+
+![newgroups](./media/newgroups.png)
+
+We will login from one of the user acccounts into the workstation VM and check if we get into it or no. I am using the user Stephen Bell who is from the legal team 
+
+![newuser](./media/newuser.png)
+
+And we are in successfully
+![stephenbell]](./media/stephenbell.png)
+
+**And Thats how we have created random users and added them to random groups by disabling the password policy complexity.!!!!**
