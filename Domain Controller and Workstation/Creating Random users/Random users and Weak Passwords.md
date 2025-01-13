@@ -67,6 +67,6 @@ We will login from one of the user acccounts into the workstation VM and check i
 ![newuser](./media/newuser.png)
 
 And we are in successfully
-![stephenbell]](./media/stephenbell.png)
+![stephenbell](./media/bell.png)
 
 **And Thats how we have created random users and added them to random groups by disabling the password policy complexity.!!!!**
