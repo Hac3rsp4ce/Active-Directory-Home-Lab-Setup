@@ -6,7 +6,7 @@ I created a text file names ![groupnamefile](./groupnames.txt) and added some co
 
 So to get started with the code part after we create those files we tried to get a random group name by using the (Get-Content) & (Get-Random) commmands and using the files we created and tried to get a random group names from it 
 
-![alt text](./randomgroup.png)
+![alt text](./media/randomgroup.png)
 
 Now to have somthing unique and if in case we needed to remove any thing from the list we can do it easily using the 
 ```shell
@@ -14,7 +14,7 @@ Now to have somthing unique and if in case we needed to remove any thing from th
 ```
 It provides a dynamic array that can grow and shrink as needed.
 
-![alt text](./code.png)
+![alt text](./media/code.png)
 
 *Initialize Variables*
 Two empty lists, $groups and $users, are created to store the generated groups and users.
@@ -41,7 +41,7 @@ Users: A list of users, each with a name, password, and group membership.
 
 
 But when we run the code and check it at our domain controller we see that there are a lot of errors because of the default password complexity set on the Group policies.
-![policy](./policy.png)
+![policy](./media/policy.png)
 
 To fix this we will turn off the password complexity by creating a function in our ad.ps1 file and in the fucntion we will give set the password complexity off using the powershell command by creating a temporary config file and edit its password complexity from 1 to 0 and force it to the system. 
 
