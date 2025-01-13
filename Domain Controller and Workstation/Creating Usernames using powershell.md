@@ -67,7 +67,7 @@ Now creating a Group in the Domain Controller we shall follow the command given 
 
 ![groupad2](./media/groupad2.png)
 
-I haven't still run this code in the domain controller  but just putting it here just for documentation.
+I haven't still run this code in the domain controller but just putting it here just for documentation.
 
 Lets take these files to our Domain controller and see how it goes on the other side.
 
@@ -83,10 +83,10 @@ We can see that the groups are created and both our users are added to their res
 
 ![groupscreated](./media/groupscreated.png)
 
-When we give the command Get-ADGroup and put the filter to * we can see the groups that we created
+When we give the command Get-ADGroup and put the filter to *we can see the groups that we created*
 ![getadgroup](./media/getadgroup.png)
 
-and when we give command Get-ADUser and set the filter to * we can see our users have also been created 
+and when we give command Get-ADUser and set the filter to *we can see our users have also been created* 
 ![getaduser](./media/getaduser.png)
  
  We Then try to login in the workstation with the newly created users and we got our success.!!!
