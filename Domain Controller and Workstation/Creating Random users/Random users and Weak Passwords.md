@@ -2,9 +2,9 @@ We shall be creating a powershell script to generate random users and define som
 
 Lets get fired up and we shall create a random.ps1 file where in we will be writing our code to generate random users and adding them to the some groups.
 
-I created a text file names ![groupnamefile](./data/groupnames.txt) and added some common groups that might be present in an organization. And copied some random first names available on any github repositories and made a txt file of that ![firstnames](./data/firstnames.txt) similarly creating a last name text file as well as passwords text file ![lastnames](./data/lastnames.txt) ![passwords](./data/passwords.txt)
+I created a text file names **groupnames.txt** and added some common groups that might be present in an organization. And copied some random first names available on any github repositories and made a txt file of that **firstnames.txt** similarly creating a last name text file as well as passwords text file **lastnames.txt**, **passwords.txt**
 
-So to get started with the code part after we create those files we tried to get a random group name by using the (Get-Content) & (Get-Random) commmands and using the files we created and tried to get a random group names from it 
+So to get started with the code part after we create those files we tried to get a random group name by using the **(Get-Content)** & **(Get-Random)** commmands and using the files we created and tried to get a random group names from it 
 
 ![alt text](./media/randomgroup.png)
 
