@@ -48,14 +48,29 @@ function CreateADUser(){
 
 }
 
+function RemoveADUser(){
+    param([parameter(Mandatory=$true)] $userObject)
+    $firstname,$lastname = $name.Split(" ")
+    $username =  ($lastname[0] + $firstname).ToLower()
+    $samAccountName = $username
+
+    RemoveADUser -Identity $samAccountname -Confirm:$false
+}
+
 function WeakenPasswordPolicy(){
     secedit /export /cfg C:\Windows\Tasks\secpol.cfg
     (Get-Content C:\Windows\Tasks\secpol.cfg).replace("PasswordComplexity = 1", "PasswordComplexity = 0").replace("MinimumPasswordLength = 7", "MinimumPasswordLength = 1") | Out-File C:\Windows\Tasks\secpol.cfg
     secedit /configure /db c:\windows\security\local.sdb /cfg C:\Windows\Tasks\secpol.cfg /areas SECURITYPOLICY
     Remove-Item -force C:\Windows\Tasks\secpol.cfg -confirm:$false
 }
-
 WeakenPasswordPolicy
+function StrengthenPasswordPolicy(){
+    secedit /export /cfg C:\Windows\Tasks\secpol.cfg
+    (Get-Content C:\Windows\Tasks\secpol.cfg).replace("PasswordComplexity = 0", "PasswordComplexity = 1").replace("MinimumPasswordLength = 1", "MinimumPasswordLength = 7") | Out-File C:\Windows\Tasks\secpol.cfg
+    secedit /configure /db c:\windows\security\local.sdb /cfg C:\Windows\Tasks\secpol.cfg /areas SECURITYPOLICY
+    Remove-Item -force C:\Windows\Tasks\secpol.cfg -confirm:$false
+}
+StrengthenPasswordPolicy
 
 $json = ( Get-Content $JSONFile | ConvertFrom-JSON)
 
