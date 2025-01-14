@@ -70,3 +70,39 @@ And we are in successfully
 ![stephenbell](./media/bell.png)
 
 **And Thats how we have created random users and added them to random groups by disabling the password policy complexity.!!!!**
+
+
+Lets say we come to a situation where we need to clean our domain controller and we need a fresh domain without any users and groups and again create users and groups as required, we would not need to run back all the steps to just create the users instead we can just put in a switch command in out **ad.ps1** code and switch to no users and populated users
+
+modidying our code but giving a switch in our parameter section and then having a if else loop where the system can create and delete the users and groups as when required.
+
+ ```shell
+# in the parameter section we can include the switch
+
+[switch] $Undo 
+
+# down below we can have a if else loop
+if (-not $Undo){
+    
+    WeakenPasswordPolicy
+
+    foreach ($group in $json.groups){
+        CreateADGroup $group
+    }
+    foreach ($user in $json.users){
+        CreateADUser  $user
+    }
+
+}else {
+    
+    StrengthenPasswordPolicy
+    
+    foreach ($user in $json.users){
+        RemoveADUser  $user
+    }
+
+    foreach ($group in $json.groups){
+        RemoveADGroup $group
+    }
+}
+```
