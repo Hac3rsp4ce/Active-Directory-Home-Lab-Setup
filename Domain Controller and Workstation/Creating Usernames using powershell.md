@@ -83,11 +83,52 @@ We can see that the groups are created and both our users are added to their res
 
 ![groupscreated](./media/groupscreated.png)
 
-When we give the command Get-ADGroup and put the filter to *we can see the groups that we created*
+When we give the command Get-ADGroup and put the filter to **we can see the groups that we created**
 ![getadgroup](./media/getadgroup.png)
 
-and when we give command Get-ADUser and set the filter to *we can see our users have also been created* 
+and when we give command Get-ADUser and set the filter to **we can see our users have also been created** 
 ![getaduser](./media/getaduser.png)
  
  We Then try to login in the workstation with the newly created users and we got our success.!!!
  ![alt text](./media/complete.png)
+
+
+
+
+
+ Lets say we come to a situation where we need to clean our domain controller and we need a fresh domain without any users and groups and again create users and groups as required, we would not need to run back all the steps to just create the users instead we can just put in a switch command in out **ad.ps1** code and switch to no users and populated users
+
+modidying our code but giving a switch in our parameter section and then having a if else loop where the system can create and delete the users and groups as when required.
+
+ ```shell
+# in the parameter section we can include the switch
+
+[switch] $Undo 
+
+# down below we can have a if else loop
+if (-not $Undo){
+    
+    WeakenPasswordPolicy
+
+    foreach ($group in $json.groups){
+        CreateADGroup $group
+    }
+    foreach ($user in $json.users){
+        CreateADUser  $user
+    }
+
+}else {
+    
+    StrengthenPasswordPolicy
+    
+    foreach ($user in $json.users){
+        RemoveADUser  $user
+    }
+
+    foreach ($group in $json.groups){
+        RemoveADGroup $group
+    }
+}
+```
+
+
