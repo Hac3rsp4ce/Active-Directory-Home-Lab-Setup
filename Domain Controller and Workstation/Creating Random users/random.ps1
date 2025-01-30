@@ -18,7 +18,7 @@ for ($i=0; $i -lt $num_groups; $i++){
         $group_names.Remove($group_name)
     } 
 
-$num_users = 50
+$num_users = 75
 
 for ($i=0; $i -lt $num_users; $i++){
 
@@ -42,7 +42,7 @@ for ($i=0; $i -lt $num_users; $i++){
 
 # Convert to JSON and write to file
 ConvertTo-Json -InputObject @{
-    "domain" = "hackerspace.com"
+    "domain" = "h4ckerspace.com"
     "groups" = $groups
     "users" = $users
 } | Out-File $OutputJSONFile

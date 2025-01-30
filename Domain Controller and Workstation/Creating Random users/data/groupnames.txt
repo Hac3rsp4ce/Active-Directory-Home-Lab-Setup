@@ -1,12 +1,14 @@
-Employees
-Security Analysts
-Software Developers
-Researchers
-Engineers
-Managers
-Sales
-Marketing
-Interns
-Operations
-Legal Team
-Backend
+Incident Response Team  
+Ethics and Compliance Team  
+Corporate Social Responsibility (CSR) Team  
+Penetration Testing Team    
+Artificial Intelligence and Machine Learning Team  
+Customer Experience (CX) Team  
+Threat Intelligence Team  
+Digital Transformation Team  
+Cloud Security Team  
+Crisis Management Team  
+Employee Wellness and Mental Health Team  
+Open Source and Community Engagement Team  
+Legal Operations Team  
+Business Intelligence (BI) Team  
