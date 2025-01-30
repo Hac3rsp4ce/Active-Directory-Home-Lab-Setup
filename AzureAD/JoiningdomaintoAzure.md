@@ -3,6 +3,7 @@
 # Architechture of the setup:
 
 Here is a simple diagram illustrating our setup:
+
 ![alt text](./images/architecture.png)
 
 # Creating domain controller and adding them to the root domain :
