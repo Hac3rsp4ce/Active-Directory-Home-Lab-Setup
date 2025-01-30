@@ -1,7 +1,11 @@
 # CREATION OF CHILD DOMAIN AND MOVING THEM TO THE CLOUD USING AZURE CONNECT
 
-# Creating domain controller and adding them to the root domain :
+# Architechture of the setup:
 
+Here is a simple diagram illustrating our setup:
+![Architecture Diagram](./Architecture.svg)
+
+# Creating domain controller and adding them to the root domain :
 So As we have created our Domain controller, workstations, users, groups in our main domain controller. Now lets see how we can join another domain controller to our forest and Move this forest to the Cloud Microsoft Entra ID (Previously known as Azure AD and before that known as Active Directory). So taking a base server and installing a GUI Based Windows server on it and we can configure that by using our previously mentioned repo.
 
 ![alt text](./images/DC02.png)
