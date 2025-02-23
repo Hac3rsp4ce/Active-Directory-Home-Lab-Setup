@@ -45,21 +45,21 @@ We will install some roles and features in our local AD and configure that to se
 
 Deploying VM in Azure
 
-    1. Select the Virtual Machine Icon in the Azure dashboard 
-    ![alt text](./images/image.png)
+* Select the Virtual Machine Icon in the Azure dashboard 
+![alt text](./images/image.png)
 
-    2. Select the option that you would like. I am going with Azure Virtual Machine
-    ![alt text](./images/image-1.png)
+* Select the option that you would like. I am going with Azure Virtual Machine
+![alt text](./images/image-1.png)
 
-    3. Configure the Machine however you require and select the image of the worksattion you would like to deploy. In our case I am deploying the Windows 10 Enterprise x64 edition. Keep the rest as default and click Review + create and deploy the machine. 
-    ![alt text](./images/image-2.png)
+* Configure the Machine however you require and select the image of the worksattion you would like to deploy. In our case I am deploying the Windows 10 Enterprise x64 edition. Keep the rest as default and click Review + create and deploy the machine. 
+![alt text](./images/image-2.png)
 
 # 3. Configuring Site-Site VPN
 
-    4. To create our own VPN we will follow the steps of creating a resource. We will Select Create Resourse ---> Networking ---> Virtual Network.
-    ![alt text](./images/image-3.png)
+* To create our own VPN we will follow the steps of creating a resource. We will Select Create Resourse ---> Networking ---> Virtual Network.
+![alt text](./images/image-3.png)
 
-    5. Create a Gateway Subnet
+* Create a Gateway Subnet
 
     * In your newly created Virtual Network, under Subnets, click + Gateway subnet.
     * Accept the default name (GatewaySubnet) and define a small range (e.g., 10.0.1.0/27).
@@ -67,28 +67,28 @@ Deploying VM in Azure
     * This subnet is reserved for the VPN gateway we will create next.
     ![alt text](./images/image-4.png)
 
-    6. Creating our Virtual network gateway we will go to the networking section of the Azure services tab and select Virtual network gateway.
+* Creating our Virtual network gateway we will go to the networking section of the Azure services tab and select Virtual network gateway.
     ![alt text](./images/image-5.png)
 
-    7. In the Virtual Network Gateway and click Create.
-        * Select the Gateway type as VPN, VPN type as Route-based.
-        * Choose SKU (depends on throughput/budget—e.g., VpnGw1).
-        * Under Virtual network, select the VNet you created earlier.
-        * Under Gateway subnet, pick the GatewaySubnet you created.
-        * Provide a Public IP address (create a new one).
-        * Click Review + create → Create.
-    Note: Deployment can take 30+ minutes.
-    ![alt text](./images/image-6.png)
-    
-    8. Create a Local Network Gateway.
+* In the Virtual Network Gateway and click Create.
+    * Select the Gateway type as VPN, VPN type as Route-based.
+    * Choose SKU (depends on throughput/budget—e.g., VpnGw1).
+    * Under Virtual network, select the VNet you created earlier.
+    * Under Gateway subnet, pick the GatewaySubnet you created.
+    * Provide a Public IP address (create a new one).
+    * Click Review + create → Create.
+Note: Deployment can take 30+ minutes.
+![alt text](./images/image-6.png)
+
+* Create a Local Network Gateway.
         * Go to Resources ---> Networking ---> Local Network gateway ---> Create.
         * Put in the name in the IP address put your Public facing IP address that you can find using the *https://www.whatismyip.com* website and in the address spaces put in the CIDR of your DC (Mine was 192.168.147.x\24).
         * Click review+create and create the Local Network gateway.
         ![alt text](./images/image-17.png)
 
-    9. Once we are done with that we need go to our RRAS dashboard and in the network interface select the  AzureS2S that we named right click and click connect. This will establish the connection with the Azure VPN and we can see connected.
+* Once we are done with that we need go to our RRAS dashboard and in the network interface select the  AzureS2S that we named right click and click connect. This will establish the connection with the Azure VPN and we can see connected.
     ![alt text](./images/image-18.png)
-        * And similarly if everything we did goes right we should see the Connected status in our VPN in Azure.
+    * And similarly if everything we did goes right we should see the Connected status in our VPN in Azure.
     ![alt text](./images/image-19.png)
 
 # 4. Connecting the VM to the On-Premise AD
