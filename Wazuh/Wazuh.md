@@ -12,43 +12,44 @@
 # Joining Ubuntu to AD
 
 * To join a debain based OS to AD directory is a little different approach than the usual joining of windows system to the AD. We will need to install some of the required tools which can be done by running the following command in the terminal.
-terminal
+```
     sudo apt -y install realmd libnss-sss libpam-sss sssd sssd-tools adcli samba-common-bin oddjob oddjob-mkhomedir packagekit
-
+```
 * This will install the required packages on the ubuntu machine.
 
 * Next we will be changing the hostname of our ubuntu machine and put it according to our domain name.
-
-sudo hostnamectl set-hostname hostname.domain.local
-
+```
+    sudo hostnamectl set-hostname hostname.domain.local
+```
 - change "hostname.domain.local" according to your domain and the hostname you want to give to your server. In my case it was "wazuh.hackerspace.com"
 ![alt text](./Media/image-1.png)
 
 * Now lets change the dns settings in our ubuntu machine. For that we will first disable the systemd-resolved service and stop it
-
-sudo systemctl disable systemd-resolved.service
+```
+    sudo systemctl disable systemd-resolved.service
     sudo systemctl stop systemd-resolved.service
-
+```
 ![alt text](./Media/image-2.png)
 
 * Now lets edit the resolv.conf file and point this towards our domain.
-sudo nano /etc/resolv.conf
-
+```
+    sudo nano /etc/resolv.conf
+```
 edit the name server IP with the IP of your DC.
 ![alt text](./Media/image-3.png)
 
 * Once we change that we will use the *realm* command to join the machine to the AD. REALM is on of the packages that we installed earlier which is a tool used to join to different domain, in our case its going to be AD.
 But first lets see if the ubuntu server is able to map our domain.
-
-sudo realm discover domain.local
-
+```
+    sudo realm discover domain.local
+```
 ![alt text](./Media/image-4.png)
 
 * This shows that we are able to resolve the domain correctly.
 * To join the machine to the domain we will use the below command.
-
-sudo realm join -U Administrator domain.local
-
+```
+    sudo realm join -U Administrator domain.local
+```
 ![alt text](./Media/image-5.png)
 
 * The *realm list* will tell us what domain we are joined to.
@@ -60,8 +61,9 @@ sudo realm join -U Administrator domain.local
 *NOTE: At this point I will advice that you take a snapshot of your machine just incase anything goes wrong while setting up the home directory configuration setting the machine will be broken and of no use and we will have to start from point1. So it is a good practice to take the snapshot of the machine and then we can move ahead*
 
 * To edit the necessary file we will use the below command to change the necessary changes.
-sudo nano /usr/share/pam-configs/mkhomedir
-
+```
+    sudo nano /usr/share/pam-configs/mkhomedir
+```
 ![alt text](./Media/image-6.png)
 
 * we changed the default to yes and priority to 900 and also we can get rid of the session interactive only part
@@ -69,14 +71,15 @@ sudo nano /usr/share/pam-configs/mkhomedir
 ![alt text](./Media/image-7.png)
 
 * Now that all the authentication is set lets now setup and configure ssh for all these users such that they can have a secure shell when required. For that we will use the realm command once again
-
-sudo realm permit
-
+```
+    sudo realm permit
+```
 * After "permit" you can mention users, groups or individual users who you want to grant access to.
 
 * Now to give all the domain admins on in our Domain or any other groups that we want to have the sudo access on the machine we can do that from regular sudoers file. But we will be creating a different file naming the domainadmins. in that file we shall put the below line
-%domain\ admins@hackerspace.com  ALL=(ALL) ALL
-
+```
+    %domain\ admins@hackerspace.com  ALL=(ALL) ALL
+```
 After this is done the domain admins in our domain should be able to have all the sudo access on this server.
 *  Now that we have set everything in place. We have laid the ground for our Wazuh server.
 
@@ -90,9 +93,9 @@ https://documentation.wazuh.com/current/quickstart.html
     2. Wazuh Indexer
     3. Wazuh Dashboard.
 * Now if we want we can always setup these individually as well, but I am following the basic installation and we can do it by using the single line command given in their quickstart guide.
-
-curl -sO https://packages.wazuh.com/4.11/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
-
+```
+    curl -sO https://packages.wazuh.com/4.11/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
+```
 This command will download and install the dependencies and packages required and and setup the Wazuh for us.
 ![alt text](./Media/image-8.png)
 * Once wazuh is installed ans configured the installation will give us the username and password with which we can access the dashboard.
@@ -125,11 +128,12 @@ https://wazuh.com/blog/
 
 1. Deploy Sysmon and Wazuh using startup script
 2. Edit the wazuh ossec.conf file with the below code ush that it monitors all the events from the sysmon too.
-<localfile>
-<location>Microsoft-Windows-Sysmon/Operational</location>
-<log_format>eventchannel</log_format>
-</localfile>
-
+```
+    <localfile>
+    <location>Microsoft-Windows-Sysmon/Operational</location>
+    <log_format>eventchannel</log_format>
+    </localfile>
+```
 
 3. Configure the Wazuh manager by editing the local_rules.xml file to macth with the sysmon evnts being created.
 
